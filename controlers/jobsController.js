@@ -9,9 +9,9 @@ const getAllData = async (req,res) => {
 
 // Create New Data
 const NewData = async (req,res) => {
-    const {nameGeo,nameEng,titleGeo,titleEng,price,sale,image} = req.body
+    const {nameGeo,nameEng,nameRus,titleGeo,titleEng,titleRus,price,sale,image} = req.body
     try{
-        const newData = await JobsSchema.create({nameGeo,nameEng,titleGeo,titleEng,price,sale,image})
+        const newData = await JobsSchema.create({nameGeo,nameEng,nameRus,titleGeo,titleEng,titleRus,price,sale,image})
         res.status(200).json({newData})
     }catch(err){
         console.log('New Posty Error',err)
@@ -30,7 +30,7 @@ const UpdateSingleValue = async(req,res) => {
 
     // if params id is valid then
     try{
-        const updataSingleItem = await JobsSchema.findByIdAndUpdate({_id:id},{...req.body})
+        const updataSingleItem = await JobsSchema.findOneAndUpdate({_id:id},{...req.body})
         res.status(200).json({updated:updataSingleItem})
     }
     catch(err)

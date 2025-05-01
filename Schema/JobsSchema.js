@@ -9,11 +9,19 @@ const JobsSchema = new Schema({
         type:String,
         required:true
     },
+    nameRus:{
+        type:String,
+        required:true
+    },
     titleGeo:{
         type:String,
         required:false
     },
     titleEng:{
+        type:String,
+        required:false
+    },
+    titleRus:{
         type:String,
         required:false
     },
