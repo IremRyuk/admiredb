@@ -7,6 +7,12 @@ const getAllData = async (req,res) => {
     res.status(200).json(allData)
 }
 
+// Get Limited Data
+const LimitData = async(req,res) => {
+    const limData = await JobsSchema.find().sort({createdAt:-1}).limit(-3)
+    res.status(200).json(limData)
+}
+
 // Create New Data
 const NewData = async (req,res) => {
     const {nameGeo,nameEng,nameRus,titleGeo,titleEng,titleRus,price,sale,image} = req.body
@@ -67,5 +73,6 @@ module.exports = {
     NewData,
     singleData,
     deleteData,
-    UpdateSingleValue
+    UpdateSingleValue,
+    LimitData
 }
