@@ -8,6 +8,7 @@ const cors = require('cors')
 
 const users = require('./Routes/users')
 const createJob = require('./Routes/createJob')
+const images = require('./Routes/Images')
 
 
 // Database
@@ -25,3 +26,4 @@ app.use(express.json({limit: '50mb'}))
 app.use(cors())
 app.use('/users',users)
 app.use('/usermenu',createJob)
+app.use('/images',images)
