@@ -3,7 +3,7 @@ const mongoose  = require('mongoose')
 
 // Get All Data
 const getAllData = async (req,res) => {
-    const allData = await ImagesSchema.find().sort({createdAt:-1})
+    const allData = await ImagesSchema.find()
     res.status(200).json(allData)
 }
 // Create New Data
