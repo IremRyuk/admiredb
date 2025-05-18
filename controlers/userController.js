@@ -1,5 +1,6 @@
 const UserSchema = require('../Schema/UsersSchema')
 const jwt = require('jsonwebtoken')
+const nodemailers = require('./nodemailer')
 
 // JsonWebToken
 const createToken = (id) => {
@@ -45,4 +46,13 @@ res.status(200).json({gmail,token})
     }   
 }
 
-module.exports = {logIn,signUp,AllUsers}
+
+// Gmail Send
+
+const Gmail = async (req,res) => {
+    const {gmail} = req.body
+    await nodemailers(gmail)
+    res.json({Status:'Link Sent In Gmail',St2:true})
+}
+
+module.exports = {logIn,signUp,AllUsers,Gmail}
